@@ -1,0 +1,10 @@
+---
+- name: create keys
+  include: tasks/create_keys.yaml
+  when: create_keys is defined and create_keys == "True"
+- name: create ip address
+  include: tasks/create_ip_address.yaml
+  when: ip_address is defined and host_name is defined
+- name: create configuration
+  include: tasks/create_config.yaml
+  when: create_config is defined and create_config == "True"
