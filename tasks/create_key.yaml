@@ -1,0 +1,14 @@
+---
+- name: install ipsec dependencies
+  apt: name={{ item }} state=present
+  with_items:
+    - racoon
+    - ipsec-tools
+- name: create ipsec racoon keys
+  script: scripts/create_keys.py {{ hostname }}
+- name: fetch public keys
+  fetch:
+    src=/etc/racoon/certs/{{ hostname }}.pub
+    dest=files/etc/racoon/certs/{{ hostname }}.pub
+    flat=yes
+
