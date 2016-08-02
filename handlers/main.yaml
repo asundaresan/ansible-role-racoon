@@ -1,0 +1,8 @@
+- name: restart setkey
+  service:
+    name: setkey
+    state: restarted
+- name: restart racoon
+  service:
+    name: racoon
+    state: restarted

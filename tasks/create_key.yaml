@@ -5,10 +5,10 @@
     - racoon
     - ipsec-tools
 - name: create ipsec racoon keys
-  script: scripts/create_keys.py {{ hostname }}
+  script: scripts/create_key.py {{ ansible_hostname }}
 - name: fetch public keys
   fetch:
-    src=/etc/racoon/certs/{{ hostname }}.pub
-    dest=files/etc/racoon/certs/{{ hostname }}.pub
+    src=/etc/racoon/certs/{{ ansible_hostname }}.pub
+    dest=files/etc/racoon/certs/{{ ansible_hostname }}.pub
     flat=yes
 

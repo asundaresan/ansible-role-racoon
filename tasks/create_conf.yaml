@@ -1,0 +1,11 @@
+- name: copy racoon public keys 
+  copy: src={{ item }} dest=/etc/racoon/certs/ owner=root mode=600
+  with_fileglob:
+    - "files/etc/racoon/certs/*.pub"
+- name: copy security.yaml 
+  copy: src=config/security.yaml dest=/home/vagrant/security.yaml
+- name: create racoon configuration files 
+  script: scripts/create_config.py {{ ansible_hostname }} /home/vagrant/security.yaml
+  notify:
+    - restart setkey
+    - restart racoon

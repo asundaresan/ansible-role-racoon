@@ -1,7 +1,7 @@
 ---
-- name: create key
+- name: create and fetch key
   include: tasks/create_key.yaml
   when: create_key is defined and create_key == "True"
-#- name: create configuration
-#  include: tasks/create_conf.yaml
-#  when: create_conf is defined and create_conf == "True"
+- name: create configuration
+  include: tasks/create_conf.yaml
+  when: create_conf is defined and create_conf == "True"
