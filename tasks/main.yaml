@@ -5,3 +5,6 @@
 - name: create configuration
   include: tasks/create_conf.yaml
   when: create_conf is defined and create_conf == "True"
+- name: create iptables
+  include: tasks/create_iptables.yaml
+  when: create_iptables is defined and create_iptables == "True"

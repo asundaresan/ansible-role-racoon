@@ -1,0 +1,6 @@
+- name: copy security.yaml 
+  copy: src=config/security.yaml dest=/home/vagrant/security.yaml
+- name: create iptables rules
+  script: scripts/create_iptables.py {{ ansible_hostname }} /home/vagrant/security.yaml
+  notify:
+    - restart iptables

@@ -6,3 +6,7 @@
   service:
     name: racoon
     state: restarted
+- name: restart iptables
+  service:
+    name: networking
+    state: restarted

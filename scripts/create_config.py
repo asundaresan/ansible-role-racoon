@@ -114,7 +114,7 @@ if __name__ == "__main__":
   with open( args.security ) as istream:
     doc = yaml.load( istream )
 
-  make_config( doc, hostname = args.hostname, prefix = args.prefix )
+  make_config( doc, args.hostname, args.prefix )
 
 
 
